@@ -1,0 +1,7 @@
+@media screen and (max-width: 768px) {
+    .main-logo {
+        width: 80px !important;
+        height: 80px !important;
+        margin-top: -10px !important;
+    }
+    }

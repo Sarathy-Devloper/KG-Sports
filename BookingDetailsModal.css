@@ -1,0 +1,194 @@
+/* Styles for the modal overlay */
+.modal-overlay-details {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Darker overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+/* Styles for the modal content */
+.booking-details-modal {
+  background-color: #f7f7f7; /* Light background for the modal */
+  border-radius: 12px; /* More rounded corners */
+  width: 90%;
+  max-width: 800px; /* Wider to accommodate the grid layout */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  overflow: hidden; /* Ensures rounded corners apply to content */
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh; /* Limit height for scrollability */
+}
+
+.modal-header-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px; /* More padding */
+  background-color: #fff; /* White header background */
+  border-bottom: 1px solid #eee;
+  position: sticky; /* Keep header visible on scroll */
+  top: 0;
+  z-index: 10;
+}
+
+.modal-title-details {
+  font-size: 1.6rem; /* Slightly larger title */
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  display: flex; /* For status badge alignment */
+  align-items: center;
+}
+
+.close-button-details {
+  background: none;
+  border: none;
+  font-size: 2.2rem; /* Larger close icon */
+  color: #888;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.close-button-details:hover {
+  color: #333;
+}
+
+.modal-content-details {
+  padding: 25px 30px; /* More padding for content */
+  overflow-y: auto; /* Enable scrolling for modal content */
+  flex-grow: 1; /* Allow content to take available space */
+}
+
+.section-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 25px; /* Spacing between sections */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  border: 1px solid #e0e0e0; /* Light border */
+}
+
+.section-card h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #4CAF50; /* Green highlight for section titles */
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e8e8e8; /* Underline for section titles */
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Responsive grid */
+  gap: 20px 30px; /* Spacing between grid items */
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-item label {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.info-item span {
+  font-size: 1.05rem;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Specific styling for Total Amount Paid to match image */
+.info-item span.fw-bold {
+  font-weight: 700;
+  color: #4CAF50; /* Green for total amount */
+  font-size: 1.2rem;
+}
+
+.modal-footer-details {
+  padding: 15px 30px;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+  position: sticky; /* Keep footer visible on scroll */
+  bottom: 0;
+  z-index: 10;
+}
+
+.cancel-button-details {
+  background-color: #dc3545; /* Red for cancel/close */
+  color: white;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.cancel-button-details:hover {
+  background-color: #c82333;
+}
+
+/* Status Badge in Details Modal Header */
+.status-badge-details {
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 15px;
+  text-transform: capitalize;
+}
+
+.status-badge-details.upcoming {
+  background-color: #e0f2f1; /* Light teal */
+  color: #00897b; /* Darker teal */
+}
+
+.status-badge-details.completed {
+  background-color: #e8f5e9; /* Light green */
+  color: #43a047; /* Darker green */
+}
+
+.status-badge-details.cancelled {
+  background-color: #ffebee; /* Light red */
+  color: #e53935; /* Darker red */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .booking-details-modal {
+    width: 95%;
+    max-width: unset;
+  }
+  .modal-header-details,
+  .modal-content-details,
+  .modal-footer-details {
+    padding: 15px 20px;
+  }
+  .section-card {
+    padding: 20px;
+  }
+  .info-grid {
+    grid-template-columns: 1fr; /* Stack items on small screens */
+  }
+  .modal-title-details {
+    font-size: 1.4rem;
+  }
+  .close-button-details {
+    font-size: 1.8rem;
+  }
+}

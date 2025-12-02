@@ -1,0 +1,568 @@
+  @font-face {
+  font-family: 'Montserrat';
+  src: url('./assets/fonts/Montserrat-SemiBold.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* From Uiverse.io by alexroumi */ 
+.dashboard-btn {
+ padding: 8px 20px !important;
+ border: unset !important;
+ border-radius: 10px !important;
+ color: #10451D !important;
+ z-index: 1 !important;
+ background: #e8e8e8 !important;
+ position: relative !important;
+ font-weight: 1000 !important;
+ font-size: 13px !important;
+ -webkit-box-shadow : 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow : 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition : all 250ms;
+ overflow : hidden;
+}
+
+.dashboard-btn::before {
+ content: "";
+ position: absolute;
+ top: 0;
+ left: 0;
+ height: 100%;
+ width: 0;
+ border-radius: 8px;
+ background-color: #212121;
+ z-index: -1;
+ -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+ transition: all 250ms
+}
+
+.dashboard-btn:hover {
+ color: #e8e8e8 !important;
+}
+
+.dashboard-btn:hover::before {
+ width: 100%;
+}
+
+.sub-btn {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 20px;
+  background: #1A7431;
+  background-image: linear-gradient(to right, #10451D, #208B3A);  color: white;
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  display: flex;
+  align-items: center;
+  border: none;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  overflow: hidden;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.time-slot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.5rem;
+}
+
+.time-slot-grid .btn:disabled {
+  background-color: #f8f9fa;
+  border-color: #dee2e6;
+  color: #6c757d;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.sticky-top {
+  /* Ensure the sticky card works correctly */
+  z-index: 1020;
+}
+
+.sub-btn span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+.sub-btn svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sub-btn:hover .svg-wrapper {
+  animation: fly-1 0.6s ease-in-out infinite alternate;
+}
+
+.sub-btn:hover svg {
+  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+}
+
+.sub-btn:hover span {
+  transform: translateX(5em);
+}
+
+.sub-btn:active {
+  transform: scale(0.95);
+}
+
+@keyframes fly-1 {
+  from {
+    transform: translateY(0.1em);
+  }
+
+  to {
+    transform: translateY(-0.1em);
+  }
+}
+
+.nav-item {
+  padding: 5px;
+}
+
+.how-it-works-section {
+  position: relative;
+  background: white;
+}
+
+.steps-wrapper {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Step item style */
+.step-item {
+  max-width: 220px;
+  flex: 1 1 0;
+  position: relative;
+}
+
+.icon-card {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  filter: drop-shadow(0 10px 12px rgba(0,0,0,0.1));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-small {
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  box-shadow: 0px 2px 8px rgba(255, 0, 0, 0.3);
+}
+
+/* Small red card placeholders */
+
+.card-mockup {
+  width: 110px;
+  height: 70px;
+  border-radius: 12px;
+  box-shadow:
+    0 0 15px 0 rgba(0, 0, 0, 0.1),
+    0 5px 10px 0 rgba(255, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Example stylized cards for each step */
+
+.red-card-step1 {
+  background: linear-gradient(135deg, #208B3A, #4AD66D);
+  position: relative;
+}
+
+/* Add a small white icon or text block - mimic the example */
+.red-card-step1::before {
+  content: '';
+  position: absolute;
+  left: 8px;
+  top: 25px;
+  width: 90px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  box-shadow: 0 2px 6px #92E6A7(255, 75, 92, 0.6);
+}
+
+.red-card-step2 {
+  background: linear-gradient(135deg, #208B3A, #4AD66D);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Bar chart effect */
+.red-card-step2::before {
+  content: '';
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  width: 80px;
+  height: 30px;
+  background:
+    linear-gradient(to top, #fff 30%, transparent 30%) 0 0 / 20px 30px repeat-x;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px #92E6A7;
+}
+
+.red-card-step3 {
+  background: linear-gradient(135deg, #208B3A, #4AD66D);
+  position: relative;
+}
+
+/* Add "Income" style text blocks using pseudo element */
+.red-card-step3::before {
+  content: "+ Add New";
+  position: absolute;
+  top: 15px;
+  left: -60px;
+  padding: 4px 8px;
+  background-color: #fff;
+  color: #333;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 6px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+}
+
+/* Connecting curved line SVG positioning */
+.connecting-curve {
+  position: absolute;
+  top: 40px;
+  left: 5%;
+  width: 90%;
+  height: 150px;
+  pointer-events: none;
+  z-index: 0;
+  user-select: none;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .steps-wrapper {
+    flex-direction: column;
+  }
+  .step-item {
+    max-width: none;
+    margin-bottom: 3rem;
+  }
+  .connecting-curve {
+    display: none;
+  }
+}
+
+.green-text{
+  font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+
+/* Background gradient */
+.carousel-container {
+  max-width: 920px;
+  margin: 80px auto;
+  background: linear-gradient(135deg, #155D27 0%, #92E6A7 100%);
+  border-radius: 70px;
+  padding: 40px 30px 60px;
+  position: relative;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  box-shadow: 0 8px 20px #10451D;
+}
+
+/* Title */
+.carousel-title {
+  font-weight: 900;
+  font-size: 24px;
+  margin-top: 0;
+  letter-spacing: 3px;
+  user-select: none;
+  color: white;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* Card that holds images and arrows */
+.carousel-card {
+  background: white;
+  border-radius: 30px;
+  padding: 30px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Arrow buttons */
+.arrow {
+  background: linear-gradient(135deg, #1A7431 0%, #2DC653 100%);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 26px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  transition: background 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.arrow:hover {
+  background: linear-gradient(135deg, #1A7431 0%, #2DC653 100%);
+}
+
+.arrow-left {
+  margin-right: 30px;
+}
+
+.arrow-right {
+  margin-left: 30px;
+}
+
+/* Images wrapper */
+.carousel-images {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Main image styling */
+.carousel-image.main-image {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 0 8px rgba(35, 104, 7, 0.5);
+  user-select: none;
+}
+
+/* Preview second image - smaller */
+.carousel-image.preview-image {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  opacity: 0.8;
+  user-select: none;
+}
+
+/* Dots navigation */
+.dots {
+  margin-top: 20px;
+  user-select: none;
+}
+
+.dot {
+  height: 8px;
+  width: 25px;
+  margin: 0 6px;
+  background-color: #ccc;
+  border-radius: 3px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #155D27;
+}
+
+/* Follow Button */
+.btn-follow {
+  margin-top: 30px;
+  padding: 12px 50px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #10451D 0%, #2DC653 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+.btn-follow:hover {
+  background: linear-gradient(135deg, #10451D 0%, #2DC653 100%);
+}
+
+/* Optional: subtle shadow circles around */
+.carousel-container::before,
+.carousel-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #10451D, #2DC653);
+  opacity: 0.4;
+  pointer-events: none;
+  user-select: none;
+}
+
+.carousel-container::before {
+  width: 70px;
+  height: 70px;
+  top: 40px;
+  left: -25px;
+  box-shadow: 0 0 40px #10451D;
+}
+
+.carousel-container::after {
+  width: 100px;
+  height: 100px;
+  bottom: 20px;
+  right: -30px;
+  box-shadow: 0 0 50px #10451D;
+}
+
+.carousel-images.three-image-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* spacing between images */
+}
+
+.carousel-image.main-image {
+  width: 300px; /* Larger main image */
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.carousel-image.preview-image {
+  width: 150px; /* Smaller preview images */
+  height: auto;
+  border-radius: 8px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.carousel-image.preview-image:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* Mobile Responsive Adjustments */
+/* Mobile Responsive Adjustments */
+/* Mobile Responsive Adjustments */
+/* Mobile Responsive Adjustments */
+/* Mobile Responsive Adjustments */
+/* Mobile Responsive Adjustments */
+/* Mobile Responsive Adjustments */
+/* Mobile Responsive Adjustments */
+/* Mobile Responsive Adjustments */
+/* Mobile Responsive Adjustments */
+/* Mobile Responsive Adjustments */
+
+@media screen and (max-width: 768px) {
+
+  .main-logo{
+    width: 50px !important;
+    height: 50px !important;
+    margin-top: 0px !important;
+  }
+  .carousel-container {
+    padding: 30px 20px 40px;
+  }
+
+  .carousel-title {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .carousel-card {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 22px;
+    margin: 15px 0;
+  }
+
+  .carousel-images {
+    gap: 20px;
+  }
+
+  .carousel-image.main-image {
+    width: 200px;
+    height: auto;
+  }
+
+  .carousel-image.preview-image {
+    width: 100px;
+    height: auto;
+  }
+
+  /* {Sports Section} */
+  .time-slot-grid {
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 0.4rem;
+  }
+  }
+
+  /* Sports Section */
+  /* mobile Responsive Adjustments */
+  @media screen and (max-width: 480px) {
+    .time-slot-grid {
+      grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+      gap: 0.3rem;
+    }
+    .book_turf{
+      margin-right: 830px !important;
+    }
+    .reg_button {
+      margin-right: 830px !important;
+    }
+    .newsletter-section{
+      display: none !important;
+    }
+    .sports_h1 {
+      margin-right: 1020px !important;
+    }
+    .carousel-container{
+      padding: 20px 15px 30px !important;
+      margin-right: 800px !important;
+    }
+    .filter_buttons{
+      margin-right: 850px !important;
+    }
+    .trainers_h1{
+      margin-right: 880px !important;
+    }
+    .tournaments_h1{
+      margin-right: 880px !important;
+    }
+    .explore_turfs{
+      margin-right: 850px !important;
+    }
+    .footer_caption{
+      margin-right: 840px !important;
+    }
+    .footer_p1{
+      margin-right: 700px !important;
+    }
+    .testimonial_1{
+      margin-right: 850px !important;
+    }
+  }

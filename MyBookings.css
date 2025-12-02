@@ -1,0 +1,1047 @@
+/* General Layout */
+.my-bookings-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f2f5f7; /* Light background for the whole page */
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.top-nav-placeholder {
+  /* Style your header here if it's not part of a global layout */
+  background-color: #fff;
+  padding: 15px 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px; /* Adjust as needed */
+}
+
+.dashboard-content-area {
+  display: flex;
+  flex: 1; /* Allows content area to take available space */
+}
+
+/* Dashboard Navigation (Left Sidebar) */
+.dashboard-nav {
+  width: 200px; /* Fixed width for the sidebar */
+  background-color: #033f63; /* Dark blue from the image */
+  color: #fff;
+  padding: 20px 0;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px); /* Adjust based on header height */
+  position: sticky;
+  top: 60px; /* Should be sticky below header */
+}
+
+.dashboard-nav .nav-item {
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dashboard-nav .nav-item:hover {
+  background-color: #055a8e; /* Lighter blue on hover */
+}
+
+.dashboard-nav .nav-item.active {
+  background-color: #0d6efd; /* Blue from image for active */
+  position: relative;
+}
+
+.dashboard-nav .nav-item.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #4CAF50; /* Green highlight for active */
+}
+
+/* Main Content Panel */
+.my-bookings-main-panel {
+  flex: 1; /* Takes remaining space */
+  padding: 30px;
+}
+
+.my-bookings-header {
+  margin-bottom: 25px;
+}
+
+.my-bookings-header h1 {
+  font-size: 28px;
+  color: #0d6efd; /* Blue color for main heading */
+  margin-bottom: 5px;
+}
+
+.my-bookings-header .breadcrumb {
+  font-size: 14px;
+  color: #666;
+}
+
+/* Booking Management Card */
+.booking-management-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  padding: 25px 30px;
+}
+
+.booking-management-card .card-header {
+  margin-bottom: 25px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.booking-management-card .card-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.booking-management-card .card-subtitle {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Filters Section */
+.booking-filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  gap: 15px;
+}
+
+.booking-filters .status-tabs {
+  display: flex;
+  background-color: #f0f2f5;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.booking-filters .status-tabs button {
+  padding: 10px 18px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+  transition: all 0.2s ease;
+  border-right: 1px solid #e0e0e0;
+}
+
+.booking-filters .status-tabs button:last-child {
+  border-right: none;
+}
+
+.booking-filters .status-tabs button.active {
+  background-color: #0d6efd; /* Blue for active tab */
+  color: #fff;
+  font-weight: 600;
+}
+
+.booking-filters .right-filters {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.booking-filters .dropdown,
+.booking-filters .search-input {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  min-width: 120px;
+}
+
+.booking-filters .button-primary,
+.booking-filters .button-secondary {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.booking-filters .button-primary {
+  background-color: #0d6efd; /* Blue */
+  color: #fff;
+}
+
+.booking-filters .button-primary:hover {
+  background-color: #0a58ca;
+}
+
+.booking-filters .button-secondary {
+  background-color: #6c757d; /* Gray */
+  color: #fff;
+}
+
+.booking-filters .button-secondary:hover {
+  background-color: #5c636a;
+}
+
+/* Bookings Table */
+.bookings-table-container {
+  overflow-x: auto; /* Ensures table is scrollable on small screens */
+  margin-bottom: 20px;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.bookings-table th,
+.bookings-table td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.bookings-table th {
+  background-color: #f8f9fa;
+  font-size: 14px;
+  color: #555;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.bookings-table td {
+  font-size: 14px;
+  color: #444;
+}
+
+.court-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.court-thumbnail {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #eee;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  min-width: 80px;
+}
+
+.status-badge.upcoming {
+  background-color: #e0f7fa; /* Light blue */
+  color: #00bcd4; /* Cyan */
+}
+
+.status-badge.completed {
+  background-color: #e8f5e9; /* Light green */
+  color: #4caf50; /* Green */
+}
+
+.status-badge.on-going {
+  background-color: #fff3e0; /* Light orange */
+  color: #ff9800; /* Orange */
+}
+
+.status-badge.cancelled {
+  background-color: #ffebee; /* Light red */
+  color: #f44336; /* Red */
+}
+
+/* View Details Button */
+.view-details-button {
+  background-color: #eef4ff; /* Light blue */
+  color: #0d6efd; /* Blue */
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.view-details-button:hover {
+  background-color: #d0e0ff;
+}
+
+/* Action Menu (Three dots) */
+.action-menu {
+  cursor: pointer;
+  font-size: 18px;
+  color: #888;
+  padding: 5px;
+}
+
+/* Table Footer (Pagination) */
+.table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.table-footer .show-entries {
+  font-size: 14px;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.table-footer .show-entries select {
+  padding: 5px 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+}
+
+.pagination button {
+  background-color: #f0f2f5;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+  transition: all 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.pagination button.active {
+  background-color: #0d6efd;
+  color: #fff;
+  border-color: #0d6efd;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Footer Placeholder */
+.footer-placeholder {
+  /* Style your footer here if it's not part of a global layout */
+  background-color: #0d6efd; /* Blue from your original image footer */
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
+  margin-top: auto; /* Pushes footer to the bottom */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .dashboard-content-area {
+    flex-direction: column;
+  }
+  .dashboard-nav {
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px 0;
+    overflow-x: auto; /* Allow horizontal scroll for nav items */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .dashboard-nav .nav-item {
+    padding: 10px 15px;
+    white-space: nowrap; /* Prevent items from wrapping */
+  }
+  .dashboard-nav .nav-item.active::before {
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    top: auto;
+  }
+  .my-bookings-main-panel {
+    padding: 20px;
+  }
+  .booking-filters {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .booking-filters .right-filters {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .booking-filters .dropdown,
+  .booking-filters .search-input {
+    min-width: unset;
+    width: auto;
+    flex: 1; /* Allows them to grow */
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-filters .right-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .booking-filters .button-primary,
+  .booking-filters .button-secondary {
+    width: 100%;
+  }
+  .table-footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .bookings-table th, .bookings-table td {
+    padding: 10px;
+    font-size: 13px;
+  }
+  .court-thumbnail {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Existing CSS styles */
+
+/* Action Menu Styles */
+.action-cell {
+  position: relative; /* Essential for positioning the dropdown */
+  text-align: center;
+}
+
+.action-menu-wrapper {
+  position: relative;
+  display: inline-block; /* Allows the icon to be positioned correctly */
+}
+
+.action-menu-wrapper i {
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 5px; /* Make it easier to click */
+}
+
+.action-dropdown {
+  position: absolute;
+  top: 100%; /* Position below the ellipsis icon */
+  right: 0; /* Align to the right of the icon */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Rounded corners as in your image */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  min-width: 180px; /* Adjust as needed */
+  z-index: 1000; /* Ensure it's above other content */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Ensures rounded corners apply to content */
+  margin-top: 5px; /* Small gap between icon and menu */
+}
+
+.action-dropdown button {
+  display: flex; /* For icon and text alignment */
+  align-items: center;
+  width: 100%;
+  padding: 12px 15px; /* Adjust padding */
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 15px;
+  color: #333;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.action-dropdown button i {
+  margin-right: 10px; /* Space between icon and text */
+  font-size: 1.1em;
+  color: #777; /* Icon color */
+}
+
+.action-dropdown button:hover {
+  background-color: #f5f5f5; /* Light background on hover */
+  color: #28a745; /* Green text on hover for example */
+}
+
+.action-dropdown button:hover i {
+  color: #28a745; /* Green icon on hover */
+}
+
+/* Specific button styles */
+.action-dropdown button:first-child {
+  border-bottom: 1px solid #eee; /* Separator for "Cancel Booking" */
+  /* If 'Edit' is always present, this might need adjustment */
+}
+
+
+/* Modal Overlay and Content (for Cancel Confirmation/Edit Modal) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001; /* Above the action menu */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px; /* Max width for modal */
+  text-align: center;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modal-actions .button-primary,
+.modal-actions .button-secondary {
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.modal-actions .button-primary {
+  background-color: #dc3545; /* Red for destructive action */
+  color: white;
+  border: 1px solid #dc3545;
+}
+
+.modal-actions .button-primary:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+.modal-actions .button-secondary {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.modal-actions .button-secondary:hover {
+  background-color: #e2e6ea;
+  border-color: #dae0e5;
+}
+
+/* Status Badge colors (ensure these match your design) */
+.status-badge {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: bold;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.status-badge.upcoming {
+  background-color: #28a745; /* Green */
+}
+.status-badge.cancelled {
+  background-color: #dc3545; /* Red */
+}
+
+/* ... existing styles ... */
+
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+.status-badge.upcoming {
+  background-color: #e0f2f1; /* Light teal */
+  color: #00897b; /* Darker teal */
+}
+
+.status-badge.completed {
+  background-color: #e8f5e9; /* Light green */
+  color: #43a047; /* Darker green */
+}
+
+.status-badge.cancelled {
+  background-color: #ffebee; /* Light red */
+  color: #e53935; /* Darker red */
+}
+
+.status-badge.on-going { /* Add style for On Going if needed */
+  background-color: #fffde7;
+  color: #fdd835;
+}
+
+
+.view-details-button {
+  background: none;
+  border: 1px solid #4CAF50; /* Green border */
+  color: #4CAF50;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+.view-details-button:hover {
+  background-color: #4CAF50;
+  color: white;
+  box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3);
+}
+
+.action-cell {
+    position: relative;
+    text-align: center; /* Center the ellipsis icon */
+}
+
+.action-menu-wrapper {
+  position: relative;
+  display: inline-block; /* Keeps the ellipsis icon inline */
+}
+
+.action-menu-wrapper .fa-ellipsis-h {
+  font-size: 1.2rem;
+  color: #666;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.action-menu-wrapper .fa-ellipsis-h:hover {
+  background-color: #f0f0f0;
+}
+
+.action-dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%; /* Position below the ellipsis */
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 180px;
+  z-index: 50; /* Ensure it's above other table content */
+  overflow: hidden; /* For rounded corners */
+}
+
+.action-dropdown button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 15px;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #444;
+  transition: background-color 0.2s ease;
+}
+
+.action-dropdown button i {
+  color: #888;
+  font-size: 1rem;
+}
+
+.action-dropdown button:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Specific hover color for Cancel/Delete if desired */
+.action-dropdown button:hover i.fa-arrow-left { color: #dc3545; }
+.action-dropdown button:hover i.fa-trash-alt { color: #dc3545; }
+.action-dropdown button:hover i.fa-edit { color: #007bff; }
+
+
+/* Modal Overlay (for Cancel/Edit - reuse for consistency if needed, or use specific ones) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.modal-content p {
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modal-actions .button-primary,
+.modal-actions .button-secondary {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.modal-actions .button-primary {
+  background-color: #dc3545; /* Red for confirmation */
+  color: white;
+  border: none;
+}
+
+.modal-actions .button-primary:hover {
+  background-color: #c82333;
+}
+
+.modal-actions .button-secondary {
+  background-color: transparent;
+  color: #6c757d;
+  border: 1px solid #6c757d;
+}
+
+.modal-actions .button-secondary:hover {
+  background-color: #e2e6ea;
+}
+
+
+/* Existing table and layout styles should remain */
+.my-bookings-page-wrapper {
+    min-height: 100vh;
+    background-color: #f8f9fa; /* Light background for the whole page */
+    padding-top: 120px; /* Adjust based on navbar height */
+}
+
+.dashboard-content-area {
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.booking-management-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-top: 30px;
+    padding: 25px;
+}
+
+.card-header {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    color: #777;
+}
+
+.booking-filters {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px; /* Space between filter groups */
+}
+
+.status-tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.status-tabs button {
+    background-color: #f0f0f0;
+    border: 1px solid #e0e0e0;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+    transition: all 0.2s ease;
+}
+
+.status-tabs button.active {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+    box-shadow: 0 2px 5px rgba(76, 175, 80, 0.3);
+}
+
+.status-tabs button:hover:not(.active) {
+    background-color: #e8e8e8;
+}
+
+.right-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.right-filters .dropdown,
+.right-filters .search-input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.right-filters .search-input {
+    min-width: 150px;
+}
+
+.right-filters .button-primary,
+.right-filters .button-secondary {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.right-filters .button-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.right-filters .button-primary:hover {
+    background-color: #43a047;
+}
+
+.right-filters .button-secondary {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.right-filters .button-secondary:hover {
+    background-color: #d4d4d4;
+}
+
+.bookings-table-container {
+    overflow-x: auto; /* Enable horizontal scrolling for table */
+    width: 100%;
+}
+
+.bookings-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.bookings-table th,
+.bookings-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.bookings-table th {
+    background-color: #f8f8f8;
+    font-weight: 600;
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bookings-table td {
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.court-name-cell .court-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 25px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.show-entries {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.show-entries select {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.pagination {
+    display: flex;
+    gap: 5px;
+}
+
+.pagination button {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #555;
+    transition: all 0.2s ease;
+}
+
+.pagination button.active {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #4CAF50;
+}
+
+.pagination button:hover:not(.active) {
+    background-color: #e8e8e8;
+}
+
+.pagination button:disabled {
+    background-color: #f8f8f8;
+    color: #bbb;
+    cursor: not-allowed;
+}
+
+/* Responsive adjustments for overall layout */
+@media (max-width: 992px) {
+    .booking-filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .right-filters {
+        width: 100%;
+        justify-content: flex-start;
+    }
+    .bookings-table th, .bookings-table td {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-title {
+        font-size: 1.5rem;
+    }
+    .status-tabs {
+        flex-wrap: wrap;
+    }
+    .table-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .pagination {
+        margin-top: 10px;
+        flex-wrap: wrap;
+    }
+    .right-filters input, .right-filters select {
+        width: 100%;
+    }
+}

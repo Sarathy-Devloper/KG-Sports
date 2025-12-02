@@ -1,0 +1,254 @@
+/* ManualSlotManagement.css */
+
+.manual-slot-management-container {
+  display: flex;
+  background-color: #1a1a1a; /* Dark background for the whole page */
+  color: #e0e0e0; /* Light text color */
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 280px;
+  background-color: #262626; /* Slightly lighter dark for sidebar */
+  padding: 20px;
+  border-right: 1px solid #333;
+  display: flex;
+  flex-direction: column;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #888;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.back-button .arrow-icon {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.venue-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.venue-logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #444; /* Placeholder background for logo */
+}
+
+.venue-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.venue-details h2 {
+  font-size: 20px;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.venue-details .address {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+.info-item .icon {
+  font-size: 16px;
+  color: #fff; /* Icons like clock and pin */
+}
+
+/* Main Content Styling */
+.main-content {
+  flex-grow: 1;
+  padding: 30px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 24px;
+  color: #fff;
+}
+
+.timezone-selector,
+.date-format-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timezone-selector select,
+.date-format-selector button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-appearance: none; /* Remove default select arrow */
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.timezone-selector select {
+  padding-right: 30px; /* Space for custom arrow if needed */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M128%20160a8%208%200%200%201-5.66-2.34l-32-32a8%208%200%200%201%2011.32-11.32L128%20146.69l26.34-26.35a8%208%200%200%201%2011.32%2011.32l-32%2032A8%208%200%200%201%20128%20160Z%22%2F%3E%3C%2Fsvg%3E');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+}
+
+
+.date-format-selector button {
+  background-color: #333;
+  transition: background-color 0.2s ease;
+}
+
+.date-format-selector button.active {
+  background-color: #007bff; /* Blue for active button */
+}
+
+/* Calendar and Time Slots Section */
+.calendar-and-slots {
+  display: flex;
+  gap: 40px;
+}
+
+.calendar-section {
+  flex: 1;
+  background-color: #262626;
+  padding: 25px;
+  border-radius: 8px;
+}
+
+.calendar-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-nav .arrow-icon {
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+}
+
+.calendar-nav h2 {
+  font-size: 20px;
+  color: #fff;
+}
+
+.day-labels {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.dates-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  text-align: center;
+}
+
+.date-cell {
+  background-color: #333;
+  padding: 12px 0;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 15px;
+}
+
+.date-cell:hover {
+  background-color: #555;
+}
+
+.date-cell.selected {
+  background-color: #007bff; /* Blue for selected date */
+  color: #fff;
+}
+
+.date-cell.available-range {
+    /* Style for the range of available dates (e.g., 23-25, 28-31) */
+    background-color: #4CAF50; /* A green color to indicate availability visually */
+    color: #fff;
+}
+
+.date-cell.selected.available-range {
+    background-color: #007bff; /* Keep blue for the *selected* date within the range */
+}
+
+.empty-day {
+  visibility: hidden; /* For empty slots at the beginning of the month */
+}
+
+/* Time Slots Section */
+.time-slots-section {
+  width: 200px; /* Fixed width for time slots */
+  background-color: #262626;
+  padding: 25px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.time-slot {
+  padding: 12px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.time-slot.available {
+  background-color: #4CAF50; /* Green for available slots */
+  color: #fff;
+}
+
+.time-slot.booked {
+  background-color: #D32F2F; /* Red for booked slots */
+  color: #fff;
+  opacity: 0.6; /* Slightly dim booked slots */
+  cursor: not-allowed;
+}
+
+.time-slot.available:hover {
+  background-color: #66BB6A; /* Lighter green on hover */
+}
